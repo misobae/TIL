@@ -250,3 +250,124 @@ Mixin은 함수(Functions)처럼 인수(Arguments)를 가질 수 있다.
   right: 40px;
 }
 ```
+
+## 함수
+함수는 보통 연산된 특정 값을 @return 지시어를 통해 반환한다.
+```scss
+// SCSS
+@function ratio($size, $ratio){
+    @return $size * $ratio
+}
+
+.box {
+    $width: 100px;
+    width: $width;
+    height: ratio($width, 9/16);
+}
+
+
+// CSS
+.box {
+  width: 100px;
+  height: 56.25px;
+}
+```
+
+### 색상 내장 함수
+작성법 | 기능
+--|--
+mix($color1, $color2) | 두 개의 색을 섞음
+lighten($color, $amount) | 더 밝은 색 만듬
+darken($color, $amount) | 더 어두운 색 만듬
+saturate($color, $amount) | 채도 올림
+desaturate($color, $amount) | 채도 낮춤
+grayscale($color) | 색상을 회색으로 변환
+invert($color) | 색상 반전
+rgba($color, $alpha) | 색상의 투명도 변경
+
+
+## 반복문
+### @for
+스타일을 반복적으로 출력한다.  
+through와 to를 사용하는 형식으로 나뉘는데,  
+through는 종료 만큼 반복, to는 종료 직전까지 반복한다.
+```scss
+// SCSS
+@for $i from 1 through 5 {
+    .box:nth-child(#{$i}) {
+        width: 100px * $i;
+    }
+}
+
+
+// CSS
+.box:nth-child(1) {
+  width: 100px;
+}
+
+.box:nth-child(2) {
+  width: 200px;
+}
+
+.box:nth-child(3) {
+  width: 300px;
+}
+
+.box:nth-child(4) {
+  width: 400px;
+}
+
+.box:nth-child(5) {
+  width: 500px;
+}
+```
+
+### @each
+list, map 데이터를 반복할 때 사용.
+```scss
+// SCSS
+$list: orange, tomato, yellow;
+$map: (
+	o: orange,
+	t: tomato,
+	y: yellow
+);
+
+@each $color in $list {
+    .box {
+        color: $color;
+    }
+}
+
+@each $key, $value in $map {
+    .box-#{$key} {
+        color: $value;
+    }
+}
+
+
+// CSS
+.box {
+  color: orange;
+}
+
+.box {
+  color: tomato;
+}
+
+.box {
+  color: yellow;
+}
+
+.box-o {
+  color: orange;
+}
+
+.box-t {
+  color: tomato;
+}
+
+.box-y {
+  color: yellow;
+}
+```
