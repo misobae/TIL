@@ -1,0 +1,12 @@
+.calculator {position: absolute;top: 0;bottom: 0;left: 0;right: 0;width: 373px;height: 667px;margin: auto;box-shadow: 0 0 20px 25px rgba(0 0 0 / 5%);}
+#result {height: 130px;padding: 30px;box-sizing: border-box;background-color: #353535;text-align: right;}
+#history {height: 24px;}
+#historyValue {margin: 0;font-size: 20px;color: #999;}
+#output {height: 48px;}
+#outputValue {margin: 5px 0 0;font-size: 40px;color: #fff;}
+
+.btn-group {display: grid;grid-template-columns: repeat(4, 1fr);height: calc(100% - 130px);border: 1px solid #666;}
+.btn-group button {background-color: #f1f1f1;border: 1px solid #666;font-weight: bold;font-size: 20px;}
+.btn-group button:active {font-size: 18px;}
+.btn-group .number,
+.btn-group .operator {cursor: pointer;}
