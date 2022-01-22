@@ -10,7 +10,6 @@ function getHistory(){
 }
 
 function printOutput(num){
-	// if 왜 쓰는거지 ?
 	if(num === ''){
 		outputValue.innerText = num;
 	} else{
@@ -32,7 +31,6 @@ function getFormattedNumber(num){
 }
 
 function reverseNumberFormat(num){
-	// str.replace(regexp|substr, newSubstr|function)
 	// g flag(/regexp/g): 표현식을 만족시키는 패턴이 한 개 이상 있는지 검사
 	return Number(num.replace(/,/g,''));
 }
@@ -73,7 +71,7 @@ for(let i = 0;i < btnOperator.length;i++){
 				output = output === '' ? output : reverseNumberFormat(output);
 				history = history  + output;
 				if(this.id === '='){
-					const result = eval(history);
+					const result = Function('"use strict";return (' + history + ')')();
 					printOutput(result);
 					printHistory('');
 				} else{

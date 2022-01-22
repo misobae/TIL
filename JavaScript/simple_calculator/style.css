@@ -10,3 +10,5 @@
 .btn-group button:active {font-size: 18px;}
 .btn-group .number,
 .btn-group .operator {cursor: pointer;}
+.btn-group .number.zero {grid-column: 1 / span  3;}
+.btn-group .operator.equals {grid-column: 4;grid-row: 4 / span  2;}
