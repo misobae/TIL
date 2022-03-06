@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Component 만들기</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    console.log(React);
+    console.log(ReactDOM);
+
+    // // Class Component 정의
+    // class ClassComponent extends React.Component {
+    //   render() {
+    //     return <div>Hello</div>;
+    //   }
+    // }
+
+    // // Class Component 사용
+    // ReactDOM.render(<ClassComponent />, document.querySelector('#root'))
+
+
+    // // Function Component 정의 1
+    // function FunctionComponent() {
+    //   return <div>Hello</div>;
+    // }
+
+    // Function Component 정의 2
+    const FunctionComponent = () => <div>Hello</div>;
+
+    // Function Component 사용
+    ReactDOM.render(<FunctionComponent />, document.querySelector('#root'))
+
+  </script>
+</body>
+</html>
