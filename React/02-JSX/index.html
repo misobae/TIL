@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSX</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    console.log(React);
+    console.log(ReactDOM);
+
+    // 우리가 작성한 코드를 => 순수하게 실행할 수 있는 자바스크립트로 변환
+    // babel 사용
+    ReactDOM.render(
+      <div>
+        <div>
+          <h1>주제</h1>
+          <ul>
+            <li>React</li>
+            <li>Vue</li>
+          </ul>
+        </div>
+      </div>,
+      document.querySelector('#root')
+    );
+
+    // JSX문법을 사용하지 않는다면 아래와 같이 가독성이 떨어지고 복잡한 구조가 됨
+    // ReactDOM.render(
+    //   React.createElement(
+    //     "div", 
+    //     null, 
+    //     React.createElement(
+    //       "div", 
+    //       null,
+    //       React.createElement("h1", null, "주제"),
+    //       React.createElement(
+    //         "ul", 
+    //         null, 
+    //         React.createElement("li", null, "React"),
+    //         React.createElement("li", null, "Vue")
+    //       )
+    //     )
+    //   ),
+    //   document.querySelector('#root')
+    // );
+  </script>
+</body>
+</html>
