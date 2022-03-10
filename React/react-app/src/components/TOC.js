@@ -2,12 +2,16 @@ import React, {Component} from 'react';
 
 class TOC extends Component {
     render(){
+        const lists = [];
+        const data = this.props.data;
+        for(let i = 0; i < data.length; i++){
+            // 여러 개의 엘리먼트를 자동으로 생성하는 경우, key prop를 갖고 있어야 한다.
+            lists.push(<li key={data[i].id}><a href={"/content/"+data[i].id}>{data[i].title}</a></li>);
+        }
         return(
             <nav>
                 <ul>
-                    <li><a href="1.html">HTML</a></li>
-                    <li><a href="2.html">CSS</a></li>
-                    <li><a href="3.html">JavaScript</a></li>
+                    {lists}
                 </ul>
             </nav>
         );
