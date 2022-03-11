@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 
 class TOC extends Component {
+    // Component의 render함수의 실행을 제어할 수 있도록 하는 함수
+    shouldComponentUpdate(newProps, newState){
+        if(this.props.data === newProps.data){
+            return false;
+        }
+        return true;
+    }
     render(){
         const lists = [];
         const data = this.props.data;
